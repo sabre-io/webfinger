@@ -1,0 +1,39 @@
+{
+    "name": "sabre/webfinger",
+    "description": "A WebFinger server.",
+    "keywords": [
+        "webfinger",
+        "rfc7033"
+    ],
+    "homepage": "http://sabre.io/dav/",
+    "license": "BSD-3-Clause",
+    "require": {
+        "php": ">=5.4.7",
+        "sabre/http" : "~3.0.0"
+        "sabre/uri" : "~1.0"
+    },
+    "authors": [
+        {
+            "name": "Evert Pot",
+            "email": "me@evertpot.com",
+            "homepage": "http://evertpot.com/",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "forum": "https://groups.google.com/group/sabredav-discuss",
+        "source": "https://github.com/fruux/sabre-webfinger"
+    },
+    "autoload": {
+        "psr-4" : {
+            "Sabre\\WebFinger\\" : "lib/"
+        }
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "*",
+        "phpunit/phpunit" : "*"
+    },
+    "config" : {
+        "bin-dir" : "bin/"
+    }
+}
