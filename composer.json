@@ -9,7 +9,7 @@
     "license": "BSD-3-Clause",
     "require": {
         "php": ">=5.4.7",
-        "sabre/http" : "~3.0.0"
+        "sabre/http" : "~3.0.0",
         "sabre/uri" : "~1.0"
     },
     "authors": [
