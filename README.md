@@ -1,6 +1,17 @@
 sabre/webfinger
 ===============
 
+This project is a very simple implementation of [WebFinger][5]. [WebFinger][5]
+is defined by [RFC7033][6] and describes a simple protocol to find out
+information about resources.
+
+To use this project, take a look at `example.php` in the root of this project.
+
+All that's required is to implement a callback, that returns an instance of
+`ResourceInterface`.
+
+To be compliant with WebFinger, you should run your server on
+`/.well-known/webfinger`.
 
 Installation
 ------------
@@ -35,3 +46,5 @@ services or enterprise support.
 [2]: http://groups.google.com/group/sabredav-discuss
 [3]: https://github.com/fruux/sabre-webfinger/issues/
 [4]: https://fruux.com/
+[5]: https://webfinger.net/
+[6]: https://tools.ietf.org/html/rfc7033
