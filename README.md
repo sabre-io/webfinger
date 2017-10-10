@@ -26,7 +26,7 @@ Build status
 
 | branch | status |
 | ------ | ------ |
-| master | [![Build Status](https://travis-ci.org/fruux/sabre-webfinger.png?branch=master)](https://travis-ci.org/fruux/sabre-webfinger) |
+| master | [![Build Status](https://travis-ci.org/sabre-io/webfinger.png?branch=master)](https://travis-ci.org/sabre-io/webfinger) |
 
 
 Questions?
