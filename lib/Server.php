@@ -2,31 +2,31 @@
 
 namespace Sabre\WebFinger;
 
+use Exception;
 use Sabre\HTTP\RequestInterface;
 use Sabre\HTTP\Response;
 use Sabre\HTTP\Sapi;
-use Exception;
 
 /**
  * Super simple WebFinger server.
  *
  * All the lookup is done in the callback in the constructor argument.
- * 
+ *
  * @copyright Copyright (C) 2015 fruux GmbH. (https://fruux.com/)
- * @author Evert Pot (http://evertpot.com/) 
+ * @author Evert Pot (http://evertpot.com/)
  * @license http://sabre.io/license/ Modified BSD License
  */
-class Server {
-
+class Server
+{
     /**
-     * Lookup function
+     * Lookup function.
      *
      * @var callable
      */
     protected $lookUp;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * The $lookUp callback is responsible for mapping resource URIs to
      * ResourceInterface objects.
@@ -34,17 +34,15 @@ class Server {
      * The callback will receive a resource as its only argument, and MUST
      * return an instance of ResourceInterface or null.
      *
-     * @param callable $lookUp
      * @return void
      */
-    function __construct(callable $lookUp) {
-
+    public function __construct(callable $lookUp)
+    {
         $this->lookUp = $lookUp;
-
     }
 
-    function start() {
-
+    public function start()
+    {
         $request = Sapi::getRequest();
         try {
             $response = $this->handleRequest($request);
@@ -55,11 +53,10 @@ class Server {
             $response = new Response($e->getHttpStatus(), ['Content-Type' => 'application/json'], json_encode($e));
         }
         Sapi::sendResponse($response);
-
     }
 
-    function handleRequest(RequestInterface $request) {
-
+    public function handleRequest(RequestInterface $request)
+    {
         $queryParams = $request->getQueryParameters();
         if (!isset($queryParams['resource'])) {
             throw new ServerException(400, 'The "resource" query parameter is required');
@@ -70,10 +67,8 @@ class Server {
         }
 
         // Debug
-        $response = new Response(200,['Content-Type' => 'application/json'], json_encode($result));
+        $response = new Response(200, ['Content-Type' => 'application/json'], json_encode($result));
         //$response = new Response(200,['Content-Type' => 'application/jrd+json'], json_encode($result));
         return $response;
-
     }
-
 }

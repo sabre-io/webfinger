@@ -2,8 +2,8 @@
 
 namespace Sabre\WebFinger;
 
-interface ResourceInterface {
-
+interface ResourceInterface
+{
     /**
      * The value of the subject is a URI that describes the entity.
      *
@@ -12,15 +12,15 @@ interface ResourceInterface {
      *
      * @return string
      */
-    function getSubject(); 
+    public function getSubject();
 
     /**
      * The "aliases" array is an array of zero or more URI strings that
-     * identify the same entity as the "subject" URI. 
+     * identify the same entity as the "subject" URI.
      *
-     * @return array 
+     * @return array
      */
-    function getAliases();
+    public function getAliases();
 
     /**
      * The "properties" object comprises zero or more name/value pairs whose
@@ -30,14 +30,13 @@ interface ResourceInterface {
      *
      * @return array
      */
-    function getProperties();
+    public function getProperties();
 
     /**
-     * The links array has a number of member objects, each representing a 
+     * The links array has a number of member objects, each representing a
      * single link or relation from the subject.
      *
      * return LinkInterface[]
      */
-    function getLinks();
-
+    public function getLinks();
 }
