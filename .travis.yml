@@ -5,8 +5,12 @@ php:
   - 7.3
   - 7.4
 
-script:
-  - ./bin/phpunit --configuration tests/phpunit.xml.dist
-  - ./bin/php-cs-fixer fix lib/ --dry-run --diff
+install:
+  - composer require --dev phpstan/phpstan:^0.12
 
 before_script: composer install --dev
+
+script:
+  - ./bin/php-cs-fixer fix lib/ --dry-run --diff
+  - ./bin/phpstan.phar analyse -c phpstan.neon lib tests
+  - ./bin/phpunit --configuration tests/phpunit.xml.dist
