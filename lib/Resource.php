@@ -11,52 +11,51 @@ use JsonSerializable;
  * @author Evert Pot (http://evertpot.com/)
  * @license http://sabre.io/license/ Modified BSD License
  */
-class Resource implements ResourceInterface, JsonSerializable {
-
+class Resource implements ResourceInterface, JsonSerializable
+{
     /**
-     * subject
+     * subject.
      *
      * @var string
      */
     protected $subject;
 
     /**
-     * aliases
+     * aliases.
      *
      * @var string[]
      */
     protected $aliases;
 
     /**
-     * properties
+     * properties.
      *
      * @var string
      */
     protected $properties;
 
     /**
-     * links
+     * links.
      *
      * @var Link[]
      */
     protected $links;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @param string $subject
+     * @param string   $subject
      * @param string[] $aliases
-     * @param array $properties
-     * @param Link[] $links
+     * @param Link[]   $links
+     *
      * @return void
      */
-    function __construct($subject, array $aliases = [], array $properties = [], array $links = []) {
-
+    public function __construct($subject, array $aliases = [], array $properties = [], array $links = [])
+    {
         $this->subject = $subject;
         $this->aliases = $aliases;
         $this->properties = $properties;
         $this->links = $links;
-
     }
 
     /**
@@ -67,10 +66,9 @@ class Resource implements ResourceInterface, JsonSerializable {
      *
      * @return string
      */
-    function getSubject() {
-
+    public function getSubject()
+    {
         return $this->subject;
-
     }
 
     /**
@@ -79,10 +77,9 @@ class Resource implements ResourceInterface, JsonSerializable {
      *
      * @return array
      */
-    function getAliases() {
-
+    public function getAliases()
+    {
         return $this->aliases;
-
     }
 
     /**
@@ -93,10 +90,9 @@ class Resource implements ResourceInterface, JsonSerializable {
      *
      * @return array
      */
-    function getProperties() {
-
+    public function getProperties()
+    {
         return $this->properties;
-
     }
 
     /**
@@ -105,10 +101,9 @@ class Resource implements ResourceInterface, JsonSerializable {
      *
      * return LinkInterface[]
      */
-    function getLinks() {
-
+    public function getLinks()
+    {
         return $this->links;
-
     }
 
     /**
@@ -116,18 +111,16 @@ class Resource implements ResourceInterface, JsonSerializable {
      *
      * @return mixed
      */
-    function jsonSerialize() {
-
+    public function jsonSerialize()
+    {
         return array_filter([
             'subject' => $this->getSubject(),
             'aliases' => $this->getAliases(),
             'properties' => $this->getProperties(),
-            'links' => $this->getLinks()
-            ], function($item) {
-                return !!$item;
+            'links' => $this->getLinks(),
+            ], function ($item) {
+                return (bool) $item;
             }
         );
-
     }
-
 }
