@@ -4,10 +4,8 @@ namespace Sabre\WebFinger;
 
 include 'vendor/autoload.php';
 
-$server = new Server(function($resource) {
-
-    if ($resource==='mailto:me@evertpot.com') {
-
+$server = new Server(function ($resource) {
+    if ('mailto:me@evertpot.com' === $resource) {
         return new Resource($resource, [], [], [
             new Link(
                 'homepage',
@@ -16,9 +14,7 @@ $server = new Server(function($resource) {
                 []
             ),
         ]);
-
     }
-
 });
 
 $server->start();
