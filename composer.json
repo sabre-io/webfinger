@@ -8,7 +8,7 @@
     "homepage": "http://sabre.io/dav/",
     "license": "BSD-3-Clause",
     "require": {
-        "php": "^7.1",
+        "php": "^7.1 || ^8.0",
         "sabre/http" : "^5.0",
         "sabre/uri" : "^2.1"
     },
