@@ -1,6 +1,8 @@
 sabre/webfinger
 ===============
 
+Trigger CI
+
 This project is a very simple implementation of [WebFinger][5]. [WebFinger][5]
 is defined by [RFC7033][6] and describes a simple protocol to find out
 information about resources.
